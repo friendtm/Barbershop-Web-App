@@ -1,0 +1,13 @@
+{% extends 'base/index.html' %}
+
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Registo</h2>
+    <form method="post" action="{% url 'register' %}" class="needs-validation" novalidate>
+      {% csrf_token %}
+      {% load crispy_forms_tags %}
+      {% crispy form %}
+    </form>
+  </div>
+{% endblock %}

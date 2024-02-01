@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home{% endblock %}</title>
+
+    <!-- BOOTSTRAP LINK -->
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+
+    <style>
+      .card-img-top {
+        width: 100%;
+        height: 35vw;
+        object-fit: cover;
+      }
+    </style>
+
+
+</head>
+<body>
+    <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#">DANTAS BARBERSHOP</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Booking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Sobre</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/register">Registo</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- BLOCK CONTENT -->
+    <div id="content" name="content" class="main text-center">
+        {% block content %}
+          <!-- CAROUSSEL -->
+          <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item vh-100 active">
+                <img class="d-block w-100" src="{% static 'media/caroussel_01.jpg' %}" alt="First slide">
+              </div>
+              <div class="carousel-item vh-100">
+                <img class="d-block w-100" src="{% static 'media/caroussel_02.jpg' %}" alt="Second slide">
+              </div>
+              <div class="carousel-item vh-100">
+                <img class="d-block w-100" src="{% static 'media/caroussel_03.jpg' %}" alt="Third slide">
+              </div>
+            </div>
+          </div>
+          <!-- END CAROUSSEL -->
+
+          <!-- QUOTE CARD -->
+          <div class="card">
+            <div class="card-header">
+            <!-- "Quote" -->  
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>Every haircut has the power to transform not just the hair, but the confidence of the soul.</p>
+                <footer class="blockquote-footer">Someone, somewhere.. <cite title="Source Title">Anonymous</cite></footer>
+              </blockquote>
+            </div>
+          </div>
+          <!-- END QUOTE CARD -->
+          <!-- CARD GROUP -->
+          <div class="card-group">
+            <div class="card">
+              <img class="card-img-top" src="{% static 'media/card_01.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{% static 'media/card_02.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="{% static 'media/card_03.jpg' %}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              </div>
+            </div>
+          </div>
+          <!-- END CARD GROUP -->
+        {% endblock %}
+    </div>
+    <!-- END BLOCK CONTENT -->
+
+    <!-- FOOTER -->
+<footer class="bg-body-tertiary text-center">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+  
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+          repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam eum
+          harum corrupti dicta, aliquam sequi voluptate quas.
+        </p>
+      </section>
+      <!-- Section: Text -->
+  
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row justify-content-center">
+          <!-- Grid column
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" href="#!">Link 1</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 2</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 3</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 4</a>
+              </li>
+            </ul>
+          </div>
+           Grid column -->
+  
+          <!-- Grid column
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" href="#!">Link 1</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 2</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 3</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 4</a>
+              </li>
+            </ul>
+          </div>
+         Grid column -->
+  
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" href="#!">Link 1</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 2</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 3</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 4</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" href="#!">Link 1</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 2</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 3</a>
+              </li>
+              <li>
+                <a class="text-body" href="#!">Link 4</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3 bg-dark text-white">
+      © 2024 Copyright:
+      <a class="text-reset fw-bold" href="#">Diogo Sal</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- END FOOTER -->
+
+    <!-- JS LINKS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" 
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" 
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>
