@@ -23,39 +23,40 @@ def home(request):
 def register(request):
     if request.method == "POST":
         form = RegistrationForm(request.POST)
-        username = form.username
-        email = form.email
-        pass1 = form.pass1
-        pass2 = form.pass2
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            pass1 = form.cleaned_data['password1']
+            pass2 = form.cleaned_data['password2']
         
-        if User.objects.filter(username=username):
-            messages.error(request, "Username já existe!")
-            return redirect('register')
-        
-        if User.objects.filter(email=email):
-            messages.error(request, "Email já existe!")
-            return redirect('register')
+            if User.objects.filter(username=username):
+                messages.error(request, "Username já existe!")
+                return redirect('register')
             
-        if len(username) > 12:
-            messages.error(request, "Username deve conter menos que 12 caracteres!")
-            return redirect("register")
+            if User.objects.filter(email=email):
+                messages.error(request, "Email já existe!")
+                return redirect('register')
+                
+            if len(username) > 12:
+                messages.error(request, "Username deve conter menos que 12 caracteres!")
+                return redirect("register")
+            
+            if pass2 != pass1:
+                messages.error(request, "Passwords não coincidem!")
+                return redirect("register")
+            
+            if not username.isalnum:
+                messages.error(request, "Passwords não coincidem!")
+                return redirect("register")
         
-        if pass2 != pass1:
-            messages.error(request, "Passwords não coincidem!")
-            return redirect("register")
+            myuser = User.objects.create_user(username, email, pass1)
+            myuser.first_name = form.cleaned_data['fname']
+            myuser.last_name = form.cleaned_data['lname']
+            
+            myuser.save()
         
-        if not form.username.isalnum:
-            messages.error(request, "Passwords não coincidem!")
-            return redirect("register")
-        
-        myuser = User.objects.create_user(username, email, pass1)
-        myuser.first_name = form.fname
-        myuser.last_name = form.lname
-        
-        myuser.save()
-    
-        messages.success(request, "Conta criada com sucesso!")
-        return redirect('login')
+            messages.success(request, "Conta criada com sucesso!")
+            return redirect('login')
     else:
         form = RegistrationForm()
     return render(request, 'base/register.html', {'form': form})
